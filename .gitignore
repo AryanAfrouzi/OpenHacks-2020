@@ -1,4 +1,9 @@
 client/node_modules/
 client/public/build/
+model/data/custom/images
+model/data/custom/labels
+
 
 .DS_Store
+
+model/out
