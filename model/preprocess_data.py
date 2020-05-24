@@ -10,6 +10,11 @@ with open("data/raw_data/annotations.json", "r") as rf:
     images = raw_data["images"]
     annotations = raw_data["annotations"]
 
+rename_table = {}
+for image in images:
+    rename_table[image["file_name"]] = str(image["id"]) + ".jpg"
+
+
 # Loop through each batch folder.
 raw_data_content = os.listdir("./data/raw_data")
 raw_data_content.remove("annotations.json")
@@ -21,11 +26,10 @@ for batch in raw_data_content:
         cv2.imwrite("./data/raw_data/" + batch + "/" + file, img)
 
         # Move image to ./data/custom/images/
-        if file != "0.jpg":
-            file = file.strip("0")
-
-        os.rename("./data/raw_data/" + batch + "/" + file, "./data/custom/images/" + file)
-        print("Moved " + "./data/raw_data/" + batch + "/" + file + " -->\n      ./data/custom/images/" + file)
+        file_name = rename_table[batch + "/" + file]
+        
+        os.rename("./data/raw_data/" + batch + "/" + file, "./data/custom/images/" + file_name)
+        print("Moved " + "./data/raw_data/" + batch + "/" + file + " -->\n      ./data/custom/images/" + file_name)
     os.rmdir("./data/raw_data/" + batch)
 
 

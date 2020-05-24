@@ -12,7 +12,7 @@ from io import BytesIO
 import sys
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument('--dataset_path', required=False, default= './data/annotations.json', help='Path to annotations')
+parser.add_argument('--dataset_path', required=False, default= './data/raw_data/annotations.json', help='Path to annotations')
 args = parser.parse_args()
 
 dataset_dir = os.path.dirname(args.dataset_path)
