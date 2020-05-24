@@ -2,6 +2,7 @@ client/node_modules/
 client/public/build/
 model/data/custom/images/*
 
+
 .DS_Store
 
 model/out
