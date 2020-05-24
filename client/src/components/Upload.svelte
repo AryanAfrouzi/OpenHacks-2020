@@ -3,7 +3,7 @@
     let img;
     let long;
     let lat;
-    let numTrash = 20;
+    let numTrash;
     
 	onMount(() => {
         // Grab elements, create settings, etc.
@@ -27,6 +27,10 @@
         window.$('#snap').on('click', function() {
             context.drawImage(video, 0, 0, 480, 360);
             img = convertCanvasToImage(canvas);
+            navigator.geolocation.getCurrentPosition(function(position) {
+                long = parseFloat(position.coords.longitude.toFixed(4));
+                lat = parseFloat(position.coords.latitude.toFixed(4));
+            });
         });
     });
 
@@ -36,13 +40,14 @@
         return image;
     }
 
-    function sendData() {
-        navigator.geolocation.getCurrentPosition(showPosition);        
-    }
+    //function sendData() {
+        //navigator.geolocation.getCurrentPosition(showPosition);        
+    //}
 
-    function showPosition(position) {
-        long = parseFloat(position.coords.longitude.toFixed(4));
-        lat = parseFloat(position.coords.latitude.toFixed(4));
+    function sendData() {
+        //long = parseFloat(position.coords.longitude.toFixed(4));
+        //lat = parseFloat(position.coords.latitude.toFixed(4));
+        numTrash = 5;
         console.log(long, lat);
 
         var data = db.collection("locations").doc("osV6loxQ60sNPBAY13Fv");
@@ -64,10 +69,17 @@
 
             if (!checked) {
                 console.log("Data doesn't exist");
+                let trashArr = doc.data().trash;
+                let longitudeArr = doc.data().longitudes;
+                let latitudeArr = doc.data().latitudes;
+
+                trashArr.push(numTrash);
+                longitudeArr.push(long);
+                latitudeArr.push(lat);
                 db.collection("locations").doc("osV6loxQ60sNPBAY13Fv").update({
-                    longitudes: firebase.firestore.FieldValue.arrayUnion(long),
-                    latitudes: firebase.firestore.FieldValue.arrayUnion(lat),
-                    trash: firebase.firestore.FieldValue.arrayUnion(numTrash)
+                    longitudes: longitudeArr,
+                    latitudes: latitudeArr,
+                    trash: trashArr
                 });
             }
         });
@@ -82,6 +94,10 @@
     <br>
     <video id="video" width="480" height="360" autoplay></video>
     <canvas id="canvas" width="480" height="360"></canvas>
+    {#if numTrash != undefined}
+        <p>Number of trash items: {numTrash}</p>
+        <p>Refresh this page to see an updated heatmap.</p>
+    {/if}
 </div>
 
 <style>

@@ -4,20 +4,17 @@
 </script>
 
 <main>
-	<h1>Take a picture:</h1>
+	<img src="littermap.png" alt="Littermap">
 	<Upload/>
 	<Map/>
 </main>
 
 <style>
-	h1 {
-		color: white;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
 	main {
 		text-align: center;
+	}
+
+	img {
+		margin-bottom: 25px;
 	}
 </style>
