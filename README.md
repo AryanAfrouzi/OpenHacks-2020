@@ -2,6 +2,16 @@ Our project for OpenHacks 2020.
 
 ---
 
+CREDIT: YOLOv3 IMPLEMENTATION https://github.com/eriklindernoren/PyTorch-YOLOv3
+        DATASET http://tacodataset.org/ 
+
+## Downloading + Preparing the Dataset.
+```bash
+cd model
+python3 download.py --dataset_path ./data/raw_data/annotations.json
+python3 preprocess_data.py
+```
+
 ## Running the app
 
 Go to the client folder and install the dependencies...
