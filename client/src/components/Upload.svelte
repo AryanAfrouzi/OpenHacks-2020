@@ -3,6 +3,7 @@
     let img;
     let long;
     let lat;
+    let numTrash = 20;
     
 	onMount(() => {
         // Grab elements, create settings, etc.
@@ -36,12 +37,40 @@
     }
 
     function sendData() {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition);        
     }
 
     function showPosition(position) {
-        long = position.coords.longitude;
-        lat = position.coords.latitude;
+        long = parseFloat(position.coords.longitude.toFixed(4));
+        lat = parseFloat(position.coords.latitude.toFixed(4));
+        console.log(long, lat);
+
+        var data = db.collection("locations").doc("osV6loxQ60sNPBAY13Fv");
+        let checked = false;
+
+        data.get().then(function(doc) {
+            let trashArr = doc.data().trash;
+            for (var i = 0; i < doc.data().latitudes.length; i++) {
+                if (long == doc.data().longitudes[i] && lat == doc.data().latitudes[i]) {
+                    checked = true;
+                    console.log("Data exists");
+                    trashArr.splice(i, 1, numTrash);
+                    data.update({
+                        trash: trashArr
+                    });
+                    break;
+                }
+            }
+
+            if (!checked) {
+                console.log("Data doesn't exist");
+                db.collection("locations").doc("osV6loxQ60sNPBAY13Fv").update({
+                    longitudes: firebase.firestore.FieldValue.arrayUnion(long),
+                    latitudes: firebase.firestore.FieldValue.arrayUnion(lat),
+                    trash: firebase.firestore.FieldValue.arrayUnion(numTrash)
+                });
+            }
+        });
     }
 </script>
 
