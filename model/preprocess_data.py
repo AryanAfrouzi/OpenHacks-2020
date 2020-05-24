@@ -2,8 +2,8 @@ import os
 import cv2
 import json
 
-os.mkdir("./data/custom/images/")
-os.mkdir("./data/custom/labels")
+#os.mkdir("./data/custom/images/")
+#os.mkdir("./data/custom/labels")
 
 with open("data/raw_data/annotations.json", "r") as rf:
     raw_data = json.loads(rf.read())
@@ -44,8 +44,8 @@ for i in range(len(annotations)):
         info[image_id] = []
 
     info[image_id].append("0 " + " ".join([str(i) for i in [
-        bbox[0] / w, bbox[1] / h,
-        bbox[2] / w, bbox[3] / h
+        bbox[0]/(w - 1), bbox[1]/(h - 1),
+        bbox[2]/(w - 1), bbox[3]/(h - 1)
     ]]))
     print("Labelled " + str(image_id) + ".jpg")
 
