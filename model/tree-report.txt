@@ -1,35 +1,27 @@
 TensorFlow 2.0 Upgrade Script
 -----------------------------
-Converted 12 files
+Converted 11 files
 Detected 3 issues that require attention
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-File: ../model/download.py
+File: ./download.py
 --------------------------------------------------------------------------------
-../model/download.py:47:16: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
-../model/download.py:49:16: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+./download.py:47:16: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+./download.py:49:16: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
 --------------------------------------------------------------------------------
-File: ../model/train.py
+File: ./train.py
 --------------------------------------------------------------------------------
-../model/train.py:178:12: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+./train.py:178:12: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
 ================================================================================
 Detailed log follows:
 
 ================================================================================
 ================================================================================
-Input tree: '../'
+Input tree: './'
 ================================================================================
 --------------------------------------------------------------------------------
-Processing file '../backend/server.py'
- outputting to '../backend/server.py'
---------------------------------------------------------------------------------
-
-
---------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
-Processing file '../model/download.py'
- outputting to '../model/download.py'
+Processing file './download.py'
+ outputting to './download.py'
 --------------------------------------------------------------------------------
 
 47:16: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
@@ -37,85 +29,80 @@ Processing file '../model/download.py'
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/train.py'
- outputting to '../model/train.py'
+Processing file './train.py'
+ outputting to './train.py'
 --------------------------------------------------------------------------------
 
 178:12: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/test.py'
- outputting to '../model/test.py'
+Processing file './test.py'
+ outputting to './test.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/preprocess_data.py'
- outputting to '../model/preprocess_data.py'
+Processing file './preprocess_data.py'
+ outputting to './preprocess_data.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/models.py'
- outputting to '../model/models.py'
+Processing file './models.py'
+ outputting to './models.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/utils/augmentations.py'
- outputting to '../model/utils/augmentations.py'
+Processing file './utils/augmentations.py'
+ outputting to './utils/augmentations.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/utils/parse_config.py'
- outputting to '../model/utils/parse_config.py'
+Processing file './utils/parse_config.py'
+ outputting to './utils/parse_config.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/utils/datasets.py'
- outputting to '../model/utils/datasets.py'
+Processing file './utils/datasets.py'
+ outputting to './utils/datasets.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/utils/logger.py'
- outputting to '../model/utils/logger.py'
---------------------------------------------------------------------------------
-
-11:18: INFO: Renamed 'tf.Summary' to 'tf.compat.v1.Summary'
-11:36: INFO: Renamed 'tf.Summary' to 'tf.compat.v1.Summary'
-16:18: INFO: Renamed 'tf.Summary' to 'tf.compat.v1.Summary'
-16:36: INFO: Renamed 'tf.Summary' to 'tf.compat.v1.Summary'
-19:12: INFO: tf.summary.scalar requires manual check. The TF 1.x summary API cannot be automatically migrated to TF 2.0, so symbols have been converted to tf.compat.v1.summary.* and must be migrated manually. Typical usage will only require changes to the summary writing logic, not to individual calls like scalar(). For examples of the new summary API, see the Effective TF 2.0 migration document or check the TF 2.0 TensorBoard tutorials.
-19:12: INFO: Renamed 'tf.summary.scalar' to 'tf.compat.v1.summary.scalar'
---------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
-Processing file '../model/utils/utils.py'
- outputting to '../model/utils/utils.py'
+Processing file './utils/logger.py'
+ outputting to './utils/logger.py'
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-Processing file '../model/utils/__init__.py'
- outputting to '../model/utils/__init__.py'
+Processing file './utils/utils.py'
+ outputting to './utils/utils.py'
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file './utils/__init__.py'
+ outputting to './utils/__init__.py'
 --------------------------------------------------------------------------------
 
 
