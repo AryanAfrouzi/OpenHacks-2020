@@ -1,4 +1,4 @@
-Our project for OpenHacks 2020.
+Littermap - a web platform for analyzing images of polluted areas using ML and mapping litter data on a global, real-time heatmap.
 
 ---
 
