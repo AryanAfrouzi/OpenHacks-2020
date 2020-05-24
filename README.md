@@ -2,7 +2,7 @@ Our project for OpenHacks 2020.
 
 ---
 
-CREDIT: YOLOv3 IMPLEMENTATION https://github.com/eriklindernoren/PyTorch-YOLOv3
+CREDIT: YOLOv3 IMPLEMENTATION https://github.com/eriklindernoren/PyTorch-YOLOv3 \
         DATASET http://tacodataset.org/ 
 
 ## Downloading + Preparing the Dataset.
